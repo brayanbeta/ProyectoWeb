@@ -1,0 +1,118 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de Docentes</div>
+<div class="panel-body">
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">Registro de Productos</h1>
+            <hr class="bg-info">
+            <div class="alert alert-info">
+                <strong>¡Informacion!</strong> ¡Recuerde que en la imagen tiene que pegar la url y que su extencion termine en .jpg .png .pnge!
+            </div>
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Codigo Producto:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" formControlName="codigoProducto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.codigoProducto.errors }" />
+                    <div *ngIf="submitted && f.codigoProducto.errors" class="invalid-feedback">
+                      <div *ngIf="f.codigoProducto.errors.required">El codigo del producto es requerido</div>
+                      <div *ngIf="f.codigoProducto.errors.minlength">Codigo requiere minimo 3 caracteres</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Cantidad del producto:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" formControlName="cantidadProducto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cantidadProducto.errors }" />
+                    <div *ngIf="submitted && f.cantidadProducto.errors" class="invalid-feedback">
+                    <div *ngIf="f.cantidadProducto.errors.required">La cantidad del producto es requerida</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Nombre del Producto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="text" formControlName="nombreProducto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreProducto.errors }" />
+                    <div *ngIf="submitted && f.nombreProducto.errors" class="invalid-feedback">
+                      <div *ngIf="f.nombreProducto.errors.required">El nombre del producto es requerido</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Costo del Producto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="number" formControlName="costoProducto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.costoProducto.errors }" />
+                    <div *ngIf="submitted && f.costoProducto.errors" class="invalid-feedback">
+                      <div *ngIf="f.costoProducto.errors.required">El costo del producto es requerido</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                        <label>Presentacion del Producto:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <input type="text" formControlName="presentacionProducto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.presentacionProducto.errors }" />
+                        <div *ngIf="submitted && f.presentacionProducto.errors" class="invalid-feedback">
+                        <div *ngIf="f.presentacionProducto.errors.required">La presentacion del producto es requerida</div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <label>Categoria del Producto:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <input type="text" formControlName="categoriaProducto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoriaProducto.errors }" />
+                        <div *ngIf="submitted && f.categoriaProducto.errors" class="invalid-feedback">
+                        <div *ngIf="f.categoriaProducto.errors.required">La categoria del producto es requerida</div>
+                        </div>
+                    </div>
+
+            </div>
+
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>URL Imagen:</label>
+                </div>
+
+                <input type="text" formControlName="imagenProducto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.imagenProducto.errors }" />
+                <div *ngIf="submitted && f.imagenProducto.errors" class="invalid-feedback">
+                  <div *ngIf="f.imagenProducto.errors.required">La imagen del producto es requerida</div>
+                </div>
+
+                
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" >Register</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+</div>

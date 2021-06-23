@@ -1,0 +1,56 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:#1CD878; color: white;">Gestion de Producto</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Total de Productos en la Tienda</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Consultar:</label>
+                </div>  
+                <div class="col-4">
+                    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consultar por ID y Nombre">
+                </div>
+            </div>
+        <hr>
+        <table class='table table-striped' *ngIf='productos && productos.length'>
+            <thead>
+                <tr>
+                <tr>             
+                    <th>#</th>
+                    <th>Codigo Producto</th>
+                    <th>URL Imagen</th>
+                    <th>Nombre Producto</th>
+                    <th>Costo Producto</th>
+                    <th>Cantidad Producto</th>
+                    <th>Presentacion Producto</th>
+                    <th>Estado Producto</th>
+                    <th>Categoria Producto</th>
+                    <th>Gestionar</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let producto of productos | filtroProductos:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{producto.codigoProducto}}</td>
+                <td>{{producto.imagenProducto}}</td>
+                <td>{{producto.nombreProducto}}</td>
+                <td>{{producto.costoProducto}}</td>
+                <td>{{producto.cantidadProducto}}</td>
+                <td>{{producto.presentacionProducto}}</td>
+                <td><span *ngIf="producto.cantidadProducto===0;"><b>SIN STOCK</b></span></td>
+                <td>{{producto.categoriaProducto}}</td>
+                <td><button type="button" class="btn btn-warning" routerLink="/consultarProductosStock/{{producto.codigoProducto}}">Editar</button></td>
+            </tr>
+        </table>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>

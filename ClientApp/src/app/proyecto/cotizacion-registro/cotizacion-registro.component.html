@@ -1,0 +1,50 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-heading" style="background-color:#1CD878; color: white;">Gestion de Cotizaciones</div>
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+                    <h1 class="textomod">Mis Cotizaciones</h1>
+                    <hr class="bg-info">
+                    <div class="alert alert-info">
+                        <strong>¡Informacion!</strong> ¡Sin novedades!
+                    </div>
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+            <div class="row separar">
+                <div class="col-4">
+                    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consultar por ID y Nombre">
+                </div>
+            </div>
+        <table class='table table-striped' *ngIf='cotizaciones && cotizaciones.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>#</th>           
+                    <th>Codigo</th>
+                    <th>Fecha de Entrega</th>
+                    <th>Hora de Entrega</th>
+                    <th>Lugar de Entrega</th>
+                    <th>Total a Pagar</th>
+                    <th>Estado Cotizacion</th>
+                    <th>Ver Productos</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cotizacion of cotizaciones | filtroMisCotizaciones:searchText; index as i">                
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{cotizacion.codigoCotizacion}}</td>
+                <td>{{cotizacion.fechaEntregaCotizacion}}</td>
+                <td>{{cotizacion.horaEntregaCotizacion}}</td>
+                <td>{{cotizacion.lugarEntregaCotizacion}}</td>
+                <td>{{cotizacion.toltalPagarCotizacion}}</td>
+                <th style="color: gray;">{{cotizacion.estadoCotirzacion}}</th>
+                <td><button type="button" class="btn btn-success" routerLink="/cotizacionConsulta/{{cotizacion.codigoCotizacion}}">ATENDER</button></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>

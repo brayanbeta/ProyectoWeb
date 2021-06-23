@@ -1,0 +1,107 @@
+<body>
+  <div class="wrapper">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+          <div class="sidebar-header">
+              <h3 [routerLink]='["/productoConsulta"]'>PULPIFRUIT</h3>
+          </div>
+
+          <ul class="list-unstyled components" *ngIf="isAuthenticated()">
+              <p>Desing By Niyer</p>
+              <li class="active" *ngIf="isAuthenticatedRole('ADMINISTRADOR')" >
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestionar Productos</a>
+                  <ul class="collapse list-unstyled" id="homeSubmenu">
+                      <li>
+                          <a [routerLink]='["/productoRegistro"]'>Agregar Productos</a>
+                      </li>
+                      <li>
+                          <a [routerLink]='["/consultarProductos"]'>Gestionar Productos</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a [routerLink]='["/misCotizaciones"]' *ngIf="isAuthenticatedRole('ADMINISTRADOR')">Mis Cotizacione</a>
+                  <a [routerLink]='["/misCotizaciones"]' *ngIf="isAuthenticatedRole('CLIENTE')">Mis Cotizacione</a>
+              </li>
+              <li class="active" *ngIf="isAuthenticatedRole('ADMINISTRADOR')" >
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestionar Proveedores</a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                          <a [routerLink]='["/home"]'>Agregar Proveedor</a>
+                      </li>
+                      <li>
+                          <a [routerLink]='["/home"]'>Gestionar Proveedor</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a [routerLink]='["/cotizacionRegistro"]' *ngIf="isAuthenticatedRole('ADMINISTRADOR')">Gestionar Cotizaciones</a>
+              </li>
+              <li>
+                <a [routerLink]='["/productoConsulta"]'>Nuestros Productos</a>
+              </li>
+
+          </ul>
+
+          
+
+          <ul class="list-unstyled components" *ngIf="!isAuthenticated()">
+                  <p>PULPIFRUIT Beta v1.0</p>
+                  <p>Logeate para ver las funciones de Cliente</p>
+              </ul>
+
+          <ul class="list-unstyled CTAs">
+              <li>
+                  <a href="https://www.unicesar.edu.co/" class="download">UNICESAR WEB</a>
+              </li>
+              <li>
+                  <a href="http://sistemas.unicesar.edu.co/" class="article">ING SISTEMAS WEB</a>
+              </li>
+          </ul>
+      </nav>
+
+      <!-- Page Content  -->
+      <div id="content">
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+
+                  <button type="button" id="sidebarCollapse" class="btn btn-success">
+                      <i class="fas fa-align-left"></i>
+                      <span>☰</span>
+                  </button>
+                  <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <i class="fas fa-align-justify"></i>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="nav navbar-nav ml-auto" *ngIf="isAuthenticated()">
+                          <li class="nav-item">
+                              <a class="nav-link" (click)="logout()" title="Logout">Logout</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#" [routerLink]='["/home"]'>USUARIO: {{ userName() }}</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#" [routerLink]='["/home"]'>NOMBRE: {{ nameUser() }}</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#" [routerLink]='["/home"]'>ROL: {{ rolUser() }}</a>
+                          </li>
+                      </ul>
+                      <ul class="nav navbar-nav ml-auto" *ngIf="!isAuthenticated()">
+                              <li class="nav-item">
+                                  <a class="nav-link text-dark" [routerLink]='["/logear"]'>Login</a>
+                              </li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+
+    <router-outlet></router-outlet>
+          
+      </div>
+  </div>
+
+</body>
+

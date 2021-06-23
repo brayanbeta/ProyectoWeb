@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-6">
+    <input [(ngModel)]="searchText" type="text" class="formcontrol" placeholder="Type to filter">
+    </div>
+    </div>
+    <hr>
+    <table class="table table-striped" *ngIf='usuarios && usuarios.length'>
+    <thead>
+    <tr>
+    <th scope="col">#</th>
+    <th scope="col">Identificacion</th>
+    <th scope="col">Email </th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Apellido</th>
+    <th scope="col">Telefono</th>
+    <th scope="col">Sexo</th>
+    <th scope="col">Direccion</th>
+    <th scope="col">Rol</th>
+    <th scope="col">Password</th>
+    <th scope="col">Search</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let usuario of usuarios; index as i ">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>{{ usuario.identificacion }} </td>
+    <td>{{ usuario.email }}</td>
+    <td>{{ usuario.nombre }}</td>
+    <td>{{ usuario.apellido}}</td>
+    <td>{{ usuario.telefono }}</td>
+    <td>{{ usuario.sexo }}</td>
+    <td>{{ usuario.direccion}}</td>
+    <td>{{ usuario.rol }}</td>
+    <td>{{ usuario.password }}</td>
+    <td><button type="button" class="btn btn-success" routerLink="/editarcliente/{{usuario.identificacion}}">Gestionar</button></td>
+    </tr>
+    </tbody>
+    </table>

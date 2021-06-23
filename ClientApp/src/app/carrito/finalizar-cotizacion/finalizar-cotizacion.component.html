@@ -1,0 +1,131 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Finalizar Cotizacion!</div>
+<div class="panel-body">
+        <div *ngIf="cotizacion">  
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">COTIZACIONES</h1>
+            <hr class="bg-info">
+            <div class="alert alert-info">
+                <strong>¡Informacion!</strong> Verifique todos los campos!
+            </div>
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Estos datos no van a poder ser modificados!
+            </div>
+
+            
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Codigo Cotizacion:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="cotizacion.codigoCotizacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Identificacion Cliente:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="cotizacion.identificacionClienteCotizacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Fecha de Entrega:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="cotizacion.fechaEntregaCotizacion" class="form-control" placeholder="digite titulo"
+                        type="date" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Hora de entrega:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="cotizacion.horaEntregaCotizacion" class="form-control" placeholder="digite titulo"
+                        type="time" />
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                        <label>Lugar de Entrega:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="cotizacion.lugarEntregaCotizacion" class="form-control" placeholder="digite titulo"
+                            type="text" />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <label>TOTAL A PAGAR:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <input [(ngModel)]="cotizacion.toltalPagarCotizacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                            <button class="btn btn-success mr-1" readonly="readonly" (click)="getAll()" >Calcular</button>
+                    </div>
+
+            </div>
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> {{anuncio}}
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" routerLink="/home" (click)="update()" >Finalizar</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto;background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+        <div class="col-4">
+                <input [(ngModel)]="searchText"  style="visibility:hidden" type="text" class="form-control" placeholder="Consultar por ID y Nombre">
+        </div>
+        <hr>
+        <table class='table table-striped' *ngIf='detalles && detalles.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Presentacion</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let detalleCotizacion of detalles | filtroDetalleProductos:searchText; index as i">
+                <td>{{detalleCotizacion.codigoProducto}}</td>
+                <td>{{detalleCotizacion.presentacionProducto}}</td>      
+                <td>{{detalleCotizacion.cantidadProducto}}</td>
+                <td>{{detalleCotizacion.total}}</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>

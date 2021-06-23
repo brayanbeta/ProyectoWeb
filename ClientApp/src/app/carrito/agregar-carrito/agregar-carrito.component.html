@@ -1,0 +1,78 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Carrito</div>
+<div class="panel-body">
+        <div *ngIf="usuario">  
+    <div class="row separar">
+        <div class="col-sm-12">
+            
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Identificacion:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="usuario.identificacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>{{codigoNuevo}}:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="usuario.nombre" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+            </div>
+
+            <label>{{aviso}}:</label>
+
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" (click)="create()">{{pruebas}}</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto;background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+        <div class="col-4">
+                <input [(ngModel)]="searchText"  style="visibility:hidden" type="text" class="form-control" placeholder="Consultar por ID y Nombre">
+        </div>
+        <hr>
+        <table class='table table-striped' *ngIf='detalleCotizacions && detalleCotizacions.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let detalleCotizacion of detalleCotizacions | filtroDetalleProductos:searchText; index as i">
+                <td>{{detalleCotizacion.codigoProducto}}</td>
+                <td>{{detalleCotizacion.cantidadProducto}}</td>
+                <td>{{detalleCotizacion.total}}</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+<div class="col-sm-2">
+    <button class="btn btn-success mr-1" routerLink="/finalizarCotizacion/{{cotizacionIdG()}}" (click)="onReset()">Finalizar Cotizacion</button>
+</div>

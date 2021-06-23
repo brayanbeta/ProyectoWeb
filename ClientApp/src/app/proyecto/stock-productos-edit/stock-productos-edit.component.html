@@ -1,0 +1,104 @@
+
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de producto</div>
+<div class="panel-body">
+        <div *ngIf="producto">  
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">Editar / Eliminar producto</h1>
+            <hr class="bg-info">
+            <div class="alert alert-info">
+                <strong>¡Informacion!</strong> ¡Si elimina no puede volver a restaurar!
+            </div>
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Codigo Producto:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="producto.codigoProducto" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Cantidad del producto:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input [(ngModel)]="producto.cantidadProducto" class="form-control" placeholder="digite titulo"
+                    type="number" />
+            </div>
+
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Nombre del Producto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="producto.nombreProducto" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Costo del Producto:</label>
+                </div>
+
+                <div class="col-sm-4">
+                        <input [(ngModel)]="producto.costoProducto" class="form-control" placeholder="digite titulo"
+                        type="number" />
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                    <div class="col-sm-2">
+                        <label>Presentacion del Producto:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="producto.presentacionProducto" class="form-control" placeholder="digite titulo"
+                            type="text" />
+                    </div>
+
+                    <div class="col-sm-2">
+                        <label>Categoria del Producto:</label>
+                    </div>
+
+                    <div class="col-sm-4">
+                            <input [(ngModel)]="producto.categoriaProducto" class="form-control" placeholder="digite titulo"
+                            type="text" />
+                    </div>
+
+            </div>
+
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>URL Imagen::</label>
+                </div>
+
+
+                <input [(ngModel)]="producto.imagenProducto" class="form-control" placeholder="digite titulo"
+                type="text" />
+
+                
+            </div>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" routerLink="/consultarProductos" (click)="update()" >Actualizar</button>
+                        <button class="btn btn-secondary" routerLink="/consultarProductos" type="reset" (click)="goBack()">Volver</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</div>
+</div>

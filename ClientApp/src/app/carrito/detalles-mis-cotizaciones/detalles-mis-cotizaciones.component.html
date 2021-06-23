@@ -1,0 +1,38 @@
+<div class="panel panel-primary"
+        style="width: auto; margin:auto; margin-top: auto;background-color: rgba(255, 255, 255, 0.8);">
+        <div class="panel-body">
+            <div class="row separar">
+                <div class="col-sm-12">
+        <!--TABLA-->
+        <div style="overflow-x:auto;">
+        <div class="col-4">
+                <input [(ngModel)]="searchText"  style="visibility:hidden" type="text" class="form-control" placeholder="Consultar por ID y Nombre">
+        </div>
+        <hr>
+        <table class='table table-striped' *ngIf='detalles && detalles.length'>
+            <thead>
+                <tr>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let detalleCotizacion of detalles | filtroDetalleProductos:searchText; index as i">
+                <td>{{detalleCotizacion.codigoProducto}}</td>
+                <td>{{detalleCotizacion.cantidadProducto}}</td>
+                <td>{{detalleCotizacion.total}}</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+<div class="row botonesayuda">
+    <div class="col-sm-12">
+            <button class="btn btn-secondary" type="reset" (click)="goBack()">Volver</button>
+    </div>
+</div>

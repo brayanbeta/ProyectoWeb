@@ -1,0 +1,78 @@
+<div class="panel panel-primary"
+style="width: auto; margin:auto; margin-top: auto; background-color: rgba(255, 255, 255, 0.8)">
+<div class="panel-heading" style="background-color: #1CD878;color: white;">Gestion de cotizaciones</div>
+<div class="panel-body">
+        <div *ngIf="cotizacion">  
+    <div class="row separar">
+        <div class="col-sm-12">
+            <h1 class="textomod">Aceptar Encargo</h1>
+            <hr class="bg-info">
+            <div class="alert alert-info">
+                <strong>¡Informacion!</strong> ¡Si elimina no puede volver a restaurar!
+            </div>
+            <div class="alert alert-warning">
+                <strong>¡Alerta!</strong> Todos los campos son obligatorios!
+            </div>
+
+            
+            <div class="row separar">
+                <div class="col-sm-2">
+                    <label>Codigo Cotizacion:</label>
+                </div>
+                <div class="col-sm-4">
+                        <input [(ngModel)]="cotizacion.codigoCotizacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                        type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Identificacion Cliente:</label>
+                </div>
+                <div class="col-sm-4">
+                    <input [(ngModel)]="cotizacion.identificacionClienteCotizacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                    type="text" />
+                </div>
+
+            </div>
+            <div class="row separar">
+
+                <div class="col-sm-2">
+                    <label>Fecha de Entrega:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input [(ngModel)]="cotizacion.fechaEntregaCotizacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                    type="text" />
+                </div>
+
+                <div class="col-sm-2">
+                    <label>Hora de Entrega:</label>
+                </div>
+
+                <div class="col-sm-4">
+                    <input [(ngModel)]="cotizacion.horaEntregaCotizacion" readonly="readonly" class="form-control" placeholder="digite titulo"
+                    type="text" />
+                </div>
+
+            </div>
+            <div class="row separar">
+                <label>Revisión:</label>
+                    </div>
+                    <select [(ngModel)]="cotizacion.estadoCotirzacion" class="form-control">
+                        <option value="PROCESANDO PEDIDO">PEDIDO PROCESADO</option>
+                        <option value="ENVIANDO PEDIDO">PEDIDO ENVIANDO</option>
+                        <option value="PEDIDO ENTREGADO">PEDIDO ENTREGADO</option>
+                        <option value="PEDIDO RECHAZADO">PEDIDO RECHAZADO</option>
+             </select>
+            <div class="row botonesayuda">
+                <div class="col-sm-12">
+                        <button class="btn btn-success mr-1" routerLink="/cotizacionRegistro" (click)="update()" >Atender</button>
+                        <button class="btn btn-secondary" routerLink="/cotizacionRegistro" type="reset" (click)="goBack()">Volver</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</div>
+</div>

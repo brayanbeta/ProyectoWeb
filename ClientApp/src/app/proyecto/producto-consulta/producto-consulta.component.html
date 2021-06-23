@@ -1,0 +1,30 @@
+<app-tarjeta-producto></app-tarjeta-producto>
+
+<div class="example-button-container" style="margin-top: 1%;">
+    <div class="col-4">
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Consultar Nombre o Referencia">
+    </div>
+  </div>
+  
+<div class="content">
+    <div class="col-4">
+        <input [(ngModel)]="searchText" type="text" style="visibility:hidden" class="form-control" placeholder="Consultar por ID y Nombre">
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">    
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let producto of productos | filtroProductos:searchText; index as i">
+            <mat-card class="mat-elevation-z4" style="background-color:white" >
+              <img mat-card-image src="{{producto.imagenProducto}}">
+              <mat-card-content>
+                <p style="color: black; font-size: 18px;font-weight: bold;">${{producto.costoProducto}}</p>
+                <p style="color: black;">**{{producto.nombreProducto}}</p>
+                <p style="color: black;">**{{producto.presentacionProducto}}</p>
+              </mat-card-content>
+              <mat-card-actions>
+                  <div class="div" style="text-align: center">
+                    <button mat-button style="background-color:springgreen"  routerLink="/productoDetalle/{{producto.codigoProducto}}">Ver detalles</button>
+                  </div>
+              </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
